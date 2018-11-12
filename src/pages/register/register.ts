@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { AuthService } from '../../services/auth';
 import { UserService } from '../../services/user';
 import { HomePage } from '../home/home';
+import firebase from 'firebase';
+import { Facebook } from '@ionic-native/facebook';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 /**
@@ -25,7 +28,8 @@ export class RegisterPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
               private authService: AuthService, private userService: UserService,
-              public toastCtrl: ToastController) {
+              public toastCtrl: ToastController, private fb: Facebook,
+              public afAuth: AngularFireAuth) {
   }
 
   register() {
@@ -159,6 +163,29 @@ export class RegisterPage {
       toast.present();
       console.log(error);
     });
+  }
+
+  test(): Promise<any> {
+    return this.fb.login(['email'])
+    .then((res) => {
+      const facebookCredential = firebase.auth.FacebookAuthProvider
+        .credential(res.authResponse.accessToken);
+        this.afAuth.auth.signInWithCredential(facebookCredential)
+        .then((success) => {
+          const toast = this.toastCtrl.create({
+            message: success.displayName,
+            duration: 3000
+          });
+          toast.present
+          this.navCtrl.setRoot(HomePage);
+        });
+    }).catch((err) => {
+      const toast = this.toastCtrl.create({
+        message: 'Error al ingresar con Facebook',
+        duration: 3000
+      });
+      toast.present();
+    });  
   }
 
   back() {

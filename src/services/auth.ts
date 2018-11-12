@@ -3,12 +3,13 @@ import {AngularFireAuth} from "angularfire2/auth";
 import * as firebase from "firebase/app";
 import { Observable } from "rxjs/Observable";
 import { GooglePlus } from "@ionic-native/google-plus";
+import { Facebook } from "@ionic-native/facebook"
 
 @Injectable()
 
 export class AuthService {
     constructor(private afAuth: AngularFireAuth,
-        private gPlus: GooglePlus) {
+        private gPlus: GooglePlus, private fb: Facebook) {
 
     }
 
@@ -47,5 +48,17 @@ export class AuthService {
                 });
             });
         })
+    }
+
+    fbLogi() {
+        return Observable.create((observer) => {
+            return this.fb.login(['email']).then((res) => {
+                const fc = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+                this.afAuth.auth.signInWithCredential(fc).then((success) => { observer.next(success); })
+                .catch((error) => {
+                    observer.error(error);
+                });
+            });
+        });
     }
 }

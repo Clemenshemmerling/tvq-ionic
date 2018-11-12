@@ -22,14 +22,15 @@ import { NewsPage } from '../pages/news/news';
 import { LivePage } from '../pages/live/live';
 import { SocialPage } from '../pages/social/social';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Facebook } from '@ionic-native/facebook';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCKWrlREeNLEoBvjbcyY_1jnRlTK6sdE88",
-  authDomain: "tvquetzachapin-4be15.firebaseapp.com",
-  databaseURL: "https://tvquetzachapin-4be15.firebaseio.com",
-  projectId: "tvquetzachapin-4be15",
-  storageBucket: "tvquetzachapin-4be15.appspot.com",
-  messagingSenderId: "369882323547"
+  apiKey: "AIzaSyCSKVaszan68KP8XbOJdrlWijTTfDJIb-0",
+  authDomain: "tvquetzachapin-4a4db.firebaseapp.com",
+  databaseURL: "https://tvquetzachapin-4a4db.firebaseio.com",
+  projectId: "tvquetzachapin-4a4db",
+  storageBucket: "tvquetzachapin-4a4db.appspot.com",
+  messagingSenderId: "276638302222"
 };
 
 @NgModule({
@@ -71,7 +72,8 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
     AuthService,
-    GooglePlus
+    GooglePlus,
+    Facebook
   ]
 })
 export class AppModule {}
