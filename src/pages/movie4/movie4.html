@@ -1,0 +1,52 @@
+<!--
+  Generated template for the Movie4Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Las Cruces</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-row *ngIf="show === false">
+      <ion-col col-12 class="center">
+        <img src="assets/imgs/TVQ-peliculas-las-cruces.jpg" alt="Las Cruces">
+      </ion-col>
+      <button ion-button block (click)="pay()">PayPal USD 0.99</button>
+    </ion-row>
+  
+    <ion-row *ngIf="show === true"> 
+      <ion-col>
+        <video src="http://tvq.tv/movies/Las%20Cruces.mp4" controls controlsList="nodownload"></video>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row padding>
+      <ion-col col-12> 
+        <div class="ctn-text">
+            <span class="bold">Titulo:</span>
+            <span class="text-white">Las Cruces</span>
+        </div>
+        <div class="ctn-text">
+            <span class="bold">Duración:</span>
+            <span class="text-white">85min</span>
+        </div>
+        <div class="ctn-text">
+            <span class="bold">Director:</span>
+            <span class="text-white">Gustav Möller</span>
+        </div>
+        <div class="ctn-text">
+            <p class="text-white">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis nam molestiae incidunt magni, quo ipsa tempora reiciendis ad ipsam at placeat enim amet architecto voluptas inventore numquam unde odio? Deleniti?
+            </p>
+        </div>
+      </ion-col>
+    </ion-row>
+  
+  </ion-content>  

@@ -24,6 +24,10 @@ export class UserService {
         return this.afDb.object('/usuarios/' + user.uid).set(user);
     }
 
+    updateUser(uid, data) {
+        return this.afDb.object('/usuarios/' + uid).update(data);
+    }
+
     deleteUser(user) {
         return this.afDb.object('/usuarios/' + user.uid).remove();
     }

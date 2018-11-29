@@ -23,10 +23,13 @@
     "@ionic-native/core": "~4.12.0",
     "@ionic-native/facebook": "^4.15.0",
     "@ionic-native/google-plus": "^4.15.0",
+    "@ionic-native/paypal": "^4.17.0",
     "@ionic-native/splash-screen": "~4.12.0",
     "@ionic-native/status-bar": "~4.12.0",
     "@ionic/storage": "2.2.0",
     "angularfire2": "^5.0.2",
+    "card.io.cordova.mobilesdk": "2.1.0",
+    "com.paypal.cordova.mobilesdk": "3.5.0",
     "cordova-android": "~7.1.1",
     "cordova-android-support-gradle-release": "^1.4.5",
     "cordova-plugin-device": "^2.0.2",
@@ -48,7 +51,7 @@
     "zone.js": "0.8.26"
   },
   "devDependencies": {
-    "@ionic/app-scripts": "3.2.0",
+    "@ionic/app-scripts": "^3.2.1",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project",
@@ -73,7 +76,8 @@
       },
       "cordova-android-support-gradle-release": {
         "ANDROID_SUPPORT_VERSION": "27.+"
-      }
+      },
+      "com.paypal.cordova.mobilesdk": {}
     },
     "platforms": [
       "android"

@@ -4,6 +4,7 @@ import { MoviesPage } from '../movies/movies';
 import { NewsPage } from '../news/news';
 import { LivePage } from '../live/live';
 import { SocialPage } from '../social/social';
+import { SportsPage } from '../sports/sports';
 
 @Component({
   selector: 'page-home',
@@ -29,6 +30,10 @@ export class HomePage {
 
   social() {
     this.navCtrl.push(SocialPage);
+  }
+
+  sport() {
+    this.navCtrl.push(SportsPage);
   }
 
 }

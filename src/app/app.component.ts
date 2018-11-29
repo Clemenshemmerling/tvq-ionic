@@ -52,6 +52,8 @@ export class MyApp {
       this.nav.setRoot(HomePage);
       this.userService.getUser(session.uid).valueChanges().subscribe((user) => {
         this.usuario = user;
+        localStorage.setItem('user', JSON.stringify(this.usuario));
+        console.log(user);
       }, (error) => {console.log(error)}); 
     });
   }
@@ -60,6 +62,7 @@ export class MyApp {
   logout() {
     this.authService.logout().then(() => {
       this.menuCtrl.close();
+      localStorage.removeItem('user');
       this.nav.setRoot(InicioPage);
     });
   }
